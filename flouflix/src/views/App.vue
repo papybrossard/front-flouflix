@@ -1,19 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <header/>
+  <div>
+    <Header/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import Header from '@/components/Header.vue'
+import Header from '../components/Header.vue'
 
-@Component({
-  components: {
-    Header
-  }
-})
+const components = {
+  Header
+}
+
+@Component({ components })
 export default class App extends Vue {}
 </script>
