@@ -14,7 +14,7 @@
       >
         <el-submenu v-for="(route, key) in menuRoutes" :key="key" :index="route.name">
           <template slot="title"> {{ route.text }} </template>
-          <el-menu-item v-for="(subroute, idx) in route.sub" :key="idx" :index="route.sub[idx].name"> {{ route.sub[idx].text }} </el-menu-item>
+          <el-menu-item v-for="(subroute, idx) in route.sub" :route="route.sub[idx].name" :index="route.sub[idx].name" :key="idx"> {{ route.sub[idx].text }} </el-menu-item>
         </el-submenu>
       </el-menu>
     </div>

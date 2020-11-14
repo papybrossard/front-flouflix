@@ -1,16 +1,23 @@
 <template>
   <div>
-    <Header/>
+    <div>
+      <Header/>
+    </div>
+    <div>
+      <Page/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import Header from '../components/Header.vue'
+import Header from '@/components/Header.vue'
+import Page from '@/components/Page.vue'
 
 const components = {
-  Header
+  Header,
+  Page
 }
 
 @Component({ components })

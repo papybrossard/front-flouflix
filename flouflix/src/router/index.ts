@@ -1,26 +1,31 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import App from '../views/App.vue'
+
+const AppComponent = () => import(/* webpackChunkName: "group-app" */'@/views/App.vue')
+const Web = () => import(/* webpackChunkName: "group-web" */'../components/Courses/Web/WebStyleList.vue')
+const Soft = () => import(/* webpackChunkName: "group-soft" */'../components/Courses/Software/SoftStyleList.vue')
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    component: App
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes: [{
+    path: '/',
+    component: AppComponent,
+    children: [
+      {
+        path: '/web',
+        name: 'web',
+        component: Web
+      },
+      {
+        path: '/software',
+        name: 'software',
+        component: Soft
+      }
+    ]
+  }
+  ]
 })
 
 export default router
